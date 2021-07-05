@@ -5,6 +5,7 @@ new Vue(
         el: '#profile-page',
         data: {
             newTask: '',
+            newPost: '',
             myProfile: {
                 details: {
                     name: 'Pierfilippo',
@@ -34,7 +35,7 @@ new Vue(
         },
         methods: {
             addTask: function () {
-                this.posts.push(this.newTask);
+                this.myProfile.posts.push(this.newTask);
                 this.newTask= "";
             }
         }
