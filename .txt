@@ -1,0 +1,9 @@
+Tasks:
+
+Creazione di un nuovo messaggio
+Con un click su “CREA” viene pushato un nuovo post nell’array posts, con il testo della textarea.
+Sviluppare sia in vanilla/es6 che in VueJS
+
+Bonus: Cancellazione del post.
+Aggiungere un icona ad ogni post, che se cliccata cancella il post relativo.
+Sviluppare sia in vanilla/es6 che in VueJS
