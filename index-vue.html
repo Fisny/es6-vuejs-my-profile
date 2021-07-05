@@ -24,8 +24,8 @@
         </div>
 
         <div class="new-post">
-            <textarea  v-model="newPost" placeholder="A cosa stai pensando?" @keyup.enter="posts.push(newPost)"></textarea>
-            <button class="send" @click="create in myProfile.posts" @click="posts.push(newPost)">CREA</button>
+            <textarea v-model="newTask" @keyup.enter="addTask" placeholder="A cosa stai pensando?">{{newPost}}</textarea>
+            <button class="send" @click="addTask">CREA</button>
         </div>
 
         <div class="post-list">
