@@ -19,18 +19,18 @@
     <div id="profile-page">
 
         <div class="user-details">
-            <div class="user-pic"><img :src="myProfile.details.pic" alt="user pic"></div>
-            <div class="user-name">{{myProfile.details.name}} {{myProfile.details.surname}}</div>
+            <!-- <div class="user-pic"><img src="img/user-default.png" alt="user pic"></div>
+            <div class="user-name">Pippo Baudo</div> -->
         </div>
 
         <div class="new-post">
-            <textarea v-model="newTask" @keyup.enter="addTask" placeholder="A cosa stai pensando?">{{newPost}}</textarea>
-            <button class="send" @click="addTask">CREA</button>
+            <textarea placeholder="A cosa stai pensando?"></textarea>
+            <button class="send">CREA</button>
         </div>
 
         <div class="post-list">
 
-            <div class="post">
+            <!-- <div class="post">
                 <div class="post-details">
                     <div class="user-pic">
                         <img src="img/user-default.png" alt="user pic">
@@ -43,17 +43,15 @@
                 <div class="post-text">
                     Lorem ipsum!
                 </div>
-
-                <!-- if? -->
                 <div class="post-media">
                     <img src="img/windows-xp.jpeg" alt="media" />
                 </div>
-
-            </div>
+            </div> -->
 
         </div>
 
     </div>
+
     <script src="./js/script-vue.js"></script>
 </body>
 </html>

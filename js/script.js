@@ -35,3 +35,77 @@ userDetailHtml.innerHTML = `
 `
 
 // in vuejs sarà: {{ myProfile.details.name }}
+
+
+
+
+// questo foreach si preoccupa di recuperare i dati
+// dall'array posts (data.myProfile.posts) e di andare a scrivere
+// tutti i singoli post nell'html.
+
+function refreshHtml() {
+
+    const postListHtml = document.querySelector(".post-list")
+    postListHtml.innerHTML = '';
+
+    data.myProfile.posts.forEach((post) => {
+
+        // prepariamo la parte interna dell'elemento html .post
+        let postHtml = `
+    <div class="post-details"> 
+        <div class="user-pic">
+            <img src="${data.myProfile.details.pic}" alt="user pic">
+        </div>
+        <div class="details">
+            <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
+            <div class="post-date">${post.date}</div>
+        </div>
+    </div> 
+    <div class="post-text">
+        ${post.text}
+    </div>
+`
+        // solo se l'immagine esiste aggiungere a postHtml l'html del media
+        // mediaPath è una chiave che "a volte" esiste. <= verifichiamo che esista.
+        // usiamo Object.keys(post) per ottenere tutte le chiavi di un oggetto => è una lista/array
+        if (Object.keys(post).includes('mediaPath')) {
+            postHtml += ` <div class="post-media">
+        <img src="${post.mediaPath}" alt="media" />
+        </div>`
+        }
+
+        // adesso il nostro html preparato è il postHtml.
+        // dobbiamo inserirlo nel suo container <div class="post"></div>
+        // e il tutto dentro postListHtml.innerHtml.
+
+        postListHtml.innerHTML += `<div class="post"> ${postHtml} </div>`
+    })
+}
+
+refreshHtml();
+
+
+// Con un click su “CREA” viene pushato un nuovo post nell’array posts, con il testo della textarea.
+// Sviluppare sia in vanilla/es6 che in VueJS
+
+// 1 step: al click su Crea, recuperiamo il testo all'interno della
+// textarea e creiamo un nuovo oggetto in data.myProfile.posts (push)
+const buttonSend = document.querySelector('button.send');
+
+buttonSend.addEventListener('click', function () {
+    const textarea = document.querySelector('.new-post textarea');
+    const textareaContent = textarea.value;
+
+    data.myProfile.posts.push({
+        text: textareaContent,
+        date: '25-06-2021'
+    })
+
+    // 2 step: una volta eseguito il 1° step, "riscrivo" l'html. 
+    // (e svuoto la textarea)
+
+    refreshHtml();
+    textarea.value = '';
+
+    
+})

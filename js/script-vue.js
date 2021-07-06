@@ -4,8 +4,6 @@ new Vue(
     {
         el: '#profile-page',
         data: {
-            newTask: '',
-            newPost: '',
             myProfile: {
                 details: {
                     name: 'Pierfilippo',
@@ -31,12 +29,16 @@ new Vue(
                         date: '17-06-2021'
                     }
                 ]
-            }
+            },
+            newPostText: '',
         },
         methods: {
-            addTask: function () {
-                this.myProfile.posts.push(this.newTask);
-                this.newTask= "";
+            postNewMessage: function () {
+                this.myProfile.posts.push({
+                    text: this.newPostText,
+                    date: '25-06-2021'
+                })
+                this.newPostText = '';
             }
         }
     }
